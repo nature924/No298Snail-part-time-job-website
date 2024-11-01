@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.QiyeDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.entity.QiyeEntity" id="qiyeMap">
+        <result property="qiyehao" column="qiyehao"/>
+        <result property="mima" column="mima"/>
+        <result property="qiyemingcheng" column="qiyemingcheng"/>
+        <result property="tupian" column="tupian"/>
+        <result property="lianxiren" column="lianxiren"/>
+        <result property="lianxifangshi" column="lianxifangshi"/>
+        <result property="youxiang" column="youxiang"/>
+        <result property="dizhi" column="dizhi"/>
+    </resultMap>
+
+	<select id="selectListVO"
+		resultType="com.entity.vo.QiyeVO" >
+		SELECT * FROM qiye  qiye         
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectVO"
+		resultType="com.entity.vo.QiyeVO" >
+		SELECT  qiye.* FROM qiye  qiye 	
+ 		<where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+
+    <select id="selectListView"
+		resultType="com.entity.view.QiyeView" >
+
+		SELECT  qiye.* FROM qiye  qiye 	        
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectView"
+		resultType="com.entity.view.QiyeView" >
+		SELECT * FROM qiye  qiye <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+</mapper>
